@@ -1,0 +1,34 @@
+spring:
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+      bindings:
+        input:
+          destination: test-topic
+          content-type: application/json
+          group: test-group
+    nacos:
+      server-addr: localhost:8848
+    alibaba:
+      seata:
+        tx-service-group: test-datasource
+  application:
+    name: test
+  datasource:
+    dynamic:
+      seata: true
+ysg:
+  datasource:
+    url: jdbc:mysql://localhost:3306/tenant?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+server:
+  port: 8081
+logging:
+  level:
+    io.stata: debug
+seata:
+  enable-auto-data-source-proxy: false

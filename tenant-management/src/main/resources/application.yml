@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+      bindings:
+        output:
+          destination: test-topic
+          content-type: application/json
+    nacos:
+      server-addr: localhost:8848
+  datasource:
+    url: jdbc:mysql://localhost:3306/tenant?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  application:
+    name: mange
+logging:
+  level:
+    root: info

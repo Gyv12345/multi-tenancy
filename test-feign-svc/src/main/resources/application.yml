@@ -1,0 +1,29 @@
+spring:
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+      bindings:
+        input:
+          destination: test-topic
+          content-type: application/json
+          group: test-group2
+    nacos:
+      server-addr: localhost:8848
+    alibaba:
+      seata:
+        tx-service-group: feign
+  application:
+    name: test-feign
+  datasource:
+    dynamic:
+      seata: true
+server:
+  port: 8090
+ysg:
+  datasource:
+    url: jdbc:mysql://localhost:3306/tenant2?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
